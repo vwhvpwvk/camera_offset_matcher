@@ -9,7 +9,7 @@ Dependency:
 - `reconsile_offset_v3.py` (match_dt_and_geotag.sh internally calls this script)
 - `match_datetime_v3.py` (macth_dt_and_geotag.sh internally calls this script)
 
-## 0. clone git & preparing the environment in hpc
+## 0. clone git & prep the environment
 
 ### clone git repo
 
