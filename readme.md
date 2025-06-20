@@ -2,7 +2,7 @@
 GPS log parsing & camera date time exact matching script, written by some_coder. 
 
 Dependency:
-- `exiftool` (perl script, can install through conda on SCINet; `conda install -c conda-forge exiftool`)
+- `exiftool` (perl script, can install through conda; `conda install -c conda-forge exiftool`)
 - `dtw-python` (install through conda, using `conda install conda-forge::dtw-python`)
 - `pandas` (install through conda, with `conda install -c conda-forge::pandas`)
 - `geotagre.py` (python file for custom functions, must be in the same directory as the command scripts)
