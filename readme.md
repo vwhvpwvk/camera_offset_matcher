@@ -9,6 +9,25 @@ Dependency:
 - `reconsile_offset_v3.py` (match_dt_and_geotag.sh internally calls this script)
 - `match_datetime_v3.py` (macth_dt_and_geotag.sh internally calls this script)
 
+## 0. preparing the environment in hpc
+
+### creating the environment
+
+```bash
+module load miniconda3
+conda create -n py311_gps python==3.11
+
+```
+
+### activate the environment & install dependencies
+
+```bash
+source activate py311_gps
+conda install -c conda-forge pandas dtw-python
+conda install -c conda-forge exiftool
+```
+Now you are ready to go with running the scripts!
+
 ## 1. parse_gpslog_and_reformat_dt.py
 
 dependency: pandas
