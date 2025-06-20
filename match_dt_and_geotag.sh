@@ -33,6 +33,7 @@ if [[ -z $GPS_LOG || -z $IMG_DIR ]]; then
     exit 1;
 fi
 
+CURR_DIR=$(dirname $(realpath "$0"))
 echo "** gps_csv: $GPS_LOG"
 echo "** image_path: $IMG_DIR"
 IMG_DIR_ABS=$(realpath ${IMG_DIR})
@@ -50,11 +51,11 @@ exiftool -DateTimeOriginal -csv -c "%%.6f" $IMG_DIR/*.JPG > $OUT_IMG_EXIF
 
 printf "\n*******\n"
 echo "Correcting datetime offsets in image exif..."
-python reconsile_offset_v3.py -gps $GPS_LOG -exif $OUT_IMG_EXIF
+python $CURR_DIR/reconsile_offset_v3.py -gps $GPS_LOG -exif $OUT_IMG_EXIF
 echo "Done."
 
 printf "\n*******\n"
 ## simple matching method, including dynamic time wrapping.
 echo "Matching camera datetime to GPS datetime for geotagging..."
-python match_datetime_v3.py -gps $GPS_LOG -exif ${OUT_NAME}_exif_corrected_dt.csv -n 8 -o ${OUT_NAME}_MATCHED.csv
+python $CURR_DIR/match_datetime_v3.py -gps $GPS_LOG -exif ${OUT_NAME}_exif_corrected_dt.csv -n 8 -o ${OUT_NAME}_MATCHED.csv
 echo "Done. Check if geotagging went well in $IMG_DIR. e.g., exiftool -GPS* -Date* [image_name.jpg]"
