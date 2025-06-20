@@ -12,6 +12,7 @@ Dependency:
 ## 0. clone git & preparing the environment in hpc
 
 ### clone git repo
+
 ```bash
 
 git clone https://github.com/vwhvpwvk/camera_offset_matcher.git
@@ -39,10 +40,10 @@ Now you are ready to go with running the scripts!
 
 dependency: pandas
 
-### usage: 
+### Usage: 
 
 ```bash
-python parse_gpslog_and_reformat_dt.py [-h] -f FILENAME -l LINE_BEGINS [-tc TARGET_COLUMN]
+python camera_offset_matcher/parse_gpslog_and_reformat_dt.py [-h] -f FILENAME -l LINE_BEGINS [-tc TARGET_COLUMN]
 
 this is a code to get datetime from unix epoch.
 
@@ -60,7 +61,7 @@ options:
 
 ```bash
 
-python parse_gpslog_and_reformat_dt.py -f cam_Project1_2025-05-08_gps1_wgs84-2.csv -l 3
+python camera_offset_matcher/parse_gpslog_and_reformat_dt.py -f cam_Project1_2025-05-08_gps1_wgs84-2.csv -l 3
 
 ```
 
@@ -73,7 +74,10 @@ python parse_gpslog_and_reformat_dt.py -f cam_Project1_2025-05-08_gps1_wgs84-2.c
 
 ## 2. match_dt_and_geotag.sh
 
-### Usage: match_dt_and_geotag.sh -g <.csv file path> -i <directory>
+### Usage: 
+
+```bash 
+bash camera_offset_matcher/match_dt_and_geotag.sh -g <.csv file path> -i <directory>
              where command is one of the following:
                    g (gps_csv)                  - parsed gps csv log file---output of parse_gpslog_and_reformat.py
                    i (image_dir)                - Enter path to camera image files
@@ -82,12 +86,13 @@ Please note that this script depends on the following:
  2. geotagre.py
  3. reconsile_offset_v3.py
  4. match_datetime_v3.py
+```
 
 ### example usage:
 
 ```bash
 
-bash match_dt_and_geotag.sh -g cam_Project1_2025-05-08_gps1_wgs84-2_clean_250613.csv -i image/directory
+bash camera_offset_matcher/match_dt_and_geotag.sh -g cam_Project1_2025-05-08_gps1_wgs84-2_clean_250613.csv -i image/directory
 
 ```
 
