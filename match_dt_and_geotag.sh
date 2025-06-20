@@ -33,7 +33,7 @@ if [[ -z $GPS_LOG || -z $IMG_DIR ]]; then
     exit 1;
 fi
 
-CURR_DIR=$(dirname $(realpath "$0"))
+CURR_DIR=$(dirname $(realpath "$0"))
 echo "** gps_csv: $GPS_LOG"
 echo "** image_path: $IMG_DIR"
 IMG_DIR_ABS=$(realpath ${IMG_DIR})
